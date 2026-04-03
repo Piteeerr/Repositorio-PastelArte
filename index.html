@@ -25,7 +25,7 @@
   </head>
   <body>
     <header>
-      <img class="logo" src="..." alt="Logo de PastelArte" class="logo" />
+      <img src="..." alt="Logo de PastelArte" class="logo" />
 
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
@@ -59,38 +59,53 @@
     </header>
     <main>
       <section class="presentacion">
-        <h1>PastelArte</h1>
-        <h2>Tortas y Cupcakes Artesanales</h2>
-        <h3>¡Diseños personalizados para cualquier evento!</h3>
+        <h1 class="titulo">PastelArte</h1>
+        <h2 class="subtitulo">Tortas y Cupcakes Artesanales</h2>
+        <h3 class="subtitulo">
+          ¡Diseños personalizados para cualquier evento!
+        </h3>
+
+        <a href="#" class="btn-hero">Ver productos</a>
       </section>
 
       <section class="categorias">
         <!--Cards con tortas y cupcakes -->
-        <img src="..." alt="imagen de categoria Tortas" class="categoria" />
-        <img src="..." alt="imagen de categoria Cupcakes" class="categoria" />
+        <div class="categoria-card">
+          <img src="..." alt="Tortas" />
+          <h3>Tortas</h3>
+        </div>
+
+        <div class="categoria-card">
+          <img src="..." alt="Cupcakes" />
+          <h3>Cupcakes</h3>
+        </div>
       </section>
 
       <section class="personalizadas">
         <h2>Diseños personalizados</h2>
-        <p>
+
+        <p class="texto">
           Tortas y Cupcakes personalizados, adaptados a tus gustos y
-          preferencias. Para cualquier edad, evento u ocasión especial. - Diseño
-          Únicos - Ingredientes premium y sabores frescos - Completamente
-          Artesanal
-
-          <a href="#">Solicitar diseño personalizado</a>
-
-          <img class="img perso" src="..." alt="Torta personalizada" />
+          preferencias. Para cualquier edad, evento u ocasión especial.
         </p>
-      </section>
 
-      <section class="Contacto">
-        <h2>Contactanos</h2>
-        <p>
+        <ul class="lista">
+          <li>Diseños únicos</li>
+          <li>Ingredientes premium y sabores frescos</li>
+          <li>Completamente artesanal</li>
+        </ul>
+
+        <a href="#" class="btn-personalizado">Solicitar diseño personalizado</a>
+
+        <img class="img-perso" src="..." alt="Torta personalizada" />
+      </section>
+      <section class="contacto">
+        <h2 class="subtitulo">Contactanos</h2>
+        <p class="texto">
           Si tenes preguntas o queres realizar un pedido, envianos un mensaje
         </p>
 
-        <form action="\submit" method="POST">
+        <form action="/submit" method="POST">
           <div class="campo">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" required />
@@ -117,17 +132,17 @@
       </section>
 
       <section class="instagram">
-        <h2>No te olvides de seguirnos en Instagram</h2>
-        <p class="texto ig">@pastelarte2010</p>
+        <h2 class="subtitulo">No te olvides de seguirnos en Instagram</h2>
+        <p class="texto-ig">@pastelarte2010</p>
 
         <!-- Imagenes de instagram -->
       </section>
     </main>
 
     <footer>
-      <div class="desc foot">
-        <h3>PastelArte</h3>
-        <p>
+      <div class="desc-foot">
+        <h3 class="sub-foot">PastelArte</h3>
+        <p class="texto-foot">
           Tortas y Cupcakes Artesanales, hechos con amor para tus momentos
           especiales.
         </p>
@@ -137,10 +152,7 @@
         <!-- links rapidos a las demas paginas -->
       </div>
 
-      <div class="info contacto">
-        E-mail: XXXX
-        Teléfono: XXXX
-      </div>
+      <div class="info-contacto">E-mail: XXXX Teléfono: XXXX</div>
 
       <div class="redes">
         <h4>Seguinos en nuestras redes</h4>
