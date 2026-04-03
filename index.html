@@ -25,7 +25,7 @@
   </head>
   <body>
     <header>
-      <img src="..." alt="Logo de PastelArte" class="logo" />
+      <img class="logo" src="..." alt="Logo de PastelArte" class="logo" />
 
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
@@ -65,9 +65,88 @@
       </section>
 
       <section class="categorias">
+        <!--Cards con tortas y cupcakes -->
+        <img src="..." alt="imagen de categoria Tortas" class="categoria" />
+        <img src="..." alt="imagen de categoria Cupcakes" class="categoria" />
+      </section>
+
+      <section class="personalizadas">
+        <h2>Diseños personalizados</h2>
+        <p>
+          Tortas y Cupcakes personalizados, adaptados a tus gustos y
+          preferencias. Para cualquier edad, evento u ocasión especial. - Diseño
+          Únicos - Ingredientes premium y sabores frescos - Completamente
+          Artesanal
+
+          <a href="#">Solicitar diseño personalizado</a>
+
+          <img class="img perso" src="..." alt="Torta personalizada" />
+        </p>
+      </section>
+
+      <section class="Contacto">
+        <h2>Contactanos</h2>
+        <p>
+          Si tenes preguntas o queres realizar un pedido, envianos un mensaje
+        </p>
+
+        <form action="\submit" method="POST">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" required />
+          </div>
+
+          <div class="campo">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" name="telefono" id="telefono" required />
+          </div>
+
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea name="mensaje" id="mensaje" required></textarea>
+          </div>
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="¡Tenés un nuevo Mensaje!"
+          />
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+
+      <section class="instagram">
+        <h2>No te olvides de seguirnos en Instagram</h2>
+        <p class="texto ig">@pastelarte2010</p>
+
+        <!-- Imagenes de instagram -->
       </section>
     </main>
-    <footer></footer>
+
+    <footer>
+      <div class="desc foot">
+        <h3>PastelArte</h3>
+        <p>
+          Tortas y Cupcakes Artesanales, hechos con amor para tus momentos
+          especiales.
+        </p>
+      </div>
+
+      <div class="links">
+        <!-- links rapidos a las demas paginas -->
+      </div>
+
+      <div class="info contacto">
+        E-mail: XXXX
+        Teléfono: XXXX
+      </div>
+
+      <div class="redes">
+        <h4>Seguinos en nuestras redes</h4>
+        <!-- Imgagenes de los logos de las redes que redireccionan a cada red social -->
+      </div>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
