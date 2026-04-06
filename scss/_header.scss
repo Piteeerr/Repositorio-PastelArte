@@ -1,0 +1,40 @@
+@use "variables" as *;
+
+header {
+  width: 100%;
+  padding: 15px 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+
+  .logo {
+    width: 140px;
+    cursor: pointer;
+  }
+
+  nav {
+    .nav-link {
+      font-size: 16px;
+      font-weight: 500;
+      color: #333 !important;
+      margin-left: 20px;
+
+      &:hover {
+        color: $color-principal !important;
+      }
+    }
+  }
+}
+
+main {
+  padding-top: 90px;
+}

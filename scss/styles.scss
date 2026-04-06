@@ -1,7 +1,5 @@
-header{
-    background-color: gray;
-}
-
-body{
-    background-color: beige;
-}
+@use "variables" as *;
+@use "reset";
+@use "header";
+@use "home";
+@use "footer";
