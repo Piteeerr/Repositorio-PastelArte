@@ -285,6 +285,29 @@ footer .redes h4 {
     text-align: center;
   }
 }
+.redes .red-social {
+  margin-top: 15px;
+}
+.redes .red-social a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #ccc;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.redes .red-social a img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.redes .red-social a:hover {
+  color: white;
+  transform: translateX(4px);
+}
+
 /* -------------------- HERO GALERIA -------------------- */
 .hero-galeria {
   width: 100%;
@@ -364,19 +387,25 @@ footer .redes h4 {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  padding: 14px 22px;
-  border-radius: 35px;
+  width: 65px;
+  height: 65px;
   background-color: #25d366;
-  color: white;
-  font-weight: 700;
-  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
   z-index: 999;
   transition: 0.3s;
 }
+.btn-whatsapp img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
 .btn-whatsapp:hover {
+  transform: scale(1.08);
   background-color: #1ebe5b;
-  transform: translateY(-3px);
 }
 
 /* -------------------- RESPONSIVE -------------------- */

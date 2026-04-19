@@ -95,23 +95,30 @@
   bottom: 25px;
   right: 25px;
 
-  padding: 14px 22px;
-  border-radius: 35px;
+  width: 65px;
+  height: 65px;
 
   background-color: #25d366;
-  color: white;
+  border-radius: 50%;
 
-  font-weight: 700;
-  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   box-shadow: $sombra-suave;
   z-index: 999;
 
   transition: 0.3s;
 
+  img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+  }
+
   &:hover {
+    transform: scale(1.08);
     background-color: #1ebe5b;
-    transform: translateY(-3px);
   }
 }
 
