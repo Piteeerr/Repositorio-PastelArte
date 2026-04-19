@@ -9,7 +9,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+
+  background-attachment: scroll; /* default para mobile */
 
   display: flex;
   flex-direction: column;
@@ -20,6 +21,7 @@
   padding: 0 20px;
 
   position: relative;
+  overflow: hidden;
 
   &::before {
     content: "";
@@ -50,7 +52,6 @@
 
   .btn-hero {
     margin-top: 25px;
-
     padding: 14px 32px;
     border-radius: 35px;
 
@@ -68,11 +69,12 @@
       transform: translateY(-3px);
     }
   }
+}
 
-  @media (min-width: 768px){
-    .presentacion{
-      background-attachment: fixed;
-    }
+/* Parallax SOLO en escritorio */
+@media (min-width: 768px) {
+  .presentacion {
+    background-attachment: fixed;
   }
 }
 
