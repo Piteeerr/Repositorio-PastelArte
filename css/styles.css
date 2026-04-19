@@ -48,10 +48,12 @@ main {
 /* -------------------- HERO PRESENTACION -------------------- */
 .presentacion {
   width: 100%;
-  height: 90vh;
-  background-image: url("../img/hero.jpg");
+  height: 95vh;
+  background-image: url("../img/banner-fondo.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,23 +66,39 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.45);
 }
 .presentacion .titulo,
-.presentacion .subtitulo {
+.presentacion .subtitulo,
+.presentacion .btn-hero {
   position: relative;
   z-index: 2;
   color: white;
 }
 .presentacion .titulo {
-  font-size: 70px;
-  font-weight: 700;
+  font-size: 80px;
+  font-weight: 800;
   margin-bottom: 10px;
 }
 .presentacion .subtitulo {
   font-size: 22px;
   font-weight: 300;
   margin-bottom: 10px;
+}
+.presentacion .btn-hero {
+  margin-top: 25px;
+  padding: 14px 32px;
+  border-radius: 35px;
+  background-color: #e86c8b;
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.presentacion .btn-hero:hover {
+  background-color: #cf5a77;
+  transform: translateY(-3px);
 }
 
 /* -------------------- CATEGORIAS -------------------- */
@@ -91,18 +109,85 @@ main {
   justify-content: center;
   gap: 40px;
 }
-.categorias .categoria {
-  width: 500px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 20px;
+
+.categoria-card {
+  width: 330px;
+  height: 420px;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
   transition: 0.3s;
 }
-.categorias .categoria:hover {
-  transform: translateY(-6px);
+.categoria-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+.categoria-card .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: 0.3s;
+}
+.categoria-card .overlay h3 {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 18px;
+}
+.categoria-card .overlay .btn-card {
+  padding: 10px 28px;
+  border-radius: 30px;
+  border: 2px solid white;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+.categoria-card:hover {
+  transform: translateY(-8px);
+}
+.categoria-card:hover img {
+  transform: scale(1.08);
+}
+.categoria-card:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.categoria-card:hover .btn-card {
+  background-color: white;
+  color: black;
 }
 
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .categorias {
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 30px;
+  }
+  .categoria-card {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+@media (max-width: 576px) {
+  .categoria-card {
+    height: 340px;
+  }
+  .categoria-card .overlay h3 {
+    font-size: 38px;
+  }
+}
 /* -------------------- PERSONALIZADAS -------------------- */
 .personalizadas {
   width: 100%;
@@ -439,7 +524,6 @@ footer .redes h4 {
   display: block;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
   transition: 0.3s;
-  cursor: pointer;
 }
 .grid-pinterest img:hover {
   transform: scale(1.03);
