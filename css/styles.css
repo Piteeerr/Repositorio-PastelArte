@@ -14,6 +14,12 @@ a {
   text-decoration: none;
 }
 
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 header {
   width: 100%;
   padding: 15px 60px;
@@ -53,7 +59,7 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -99,6 +105,11 @@ main {
 .presentacion .btn-hero:hover {
   background-color: #cf5a77;
   transform: translateY(-3px);
+}
+@media (min-width: 768px) {
+  .presentacion .presentacion {
+    background-attachment: fixed;
+  }
 }
 
 /* -------------------- CATEGORIAS -------------------- */
