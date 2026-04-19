@@ -285,5 +285,121 @@ footer .redes h4 {
     text-align: center;
   }
 }
+/* -------------------- HERO GALERIA -------------------- */
+.hero-galeria {
+  width: 100%;
+  padding: 120px 20px 70px;
+  text-align: center;
+  background: linear-gradient(to bottom, #fff, #f9f9f9);
+}
+.hero-galeria .titulo {
+  font-size: 60px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.hero-galeria .texto {
+  font-size: 18px;
+  color: #555;
+}
+
+/* -------------------- NAV GALERIA -------------------- */
+.nav-galeria {
+  width: 100%;
+  padding: 20px 20px 60px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.nav-galeria .btn-galeria {
+  padding: 12px 28px;
+  border-radius: 30px;
+  background-color: #e86c8b;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.nav-galeria .btn-galeria:hover {
+  background-color: #cf5a77;
+  transform: translateY(-2px);
+}
+
+/* -------------------- SECCIONES -------------------- */
+.seccion-galeria {
+  width: 100%;
+  padding: 80px 80px;
+  text-align: center;
+}
+.seccion-galeria .subtitulo {
+  font-size: 45px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.seccion-galeria .subtexto {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+/* -------------------- GRID PINTEREST -------------------- */
+.grid-pinterest {
+  column-count: 4;
+  column-gap: 18px;
+}
+.grid-pinterest img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  display: block;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.grid-pinterest img:hover {
+  transform: scale(1.03);
+}
+
+/* -------------------- BOTON WHATSAPP -------------------- */
+.btn-whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  padding: 14px 22px;
+  border-radius: 35px;
+  background-color: #25d366;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  transition: 0.3s;
+}
+.btn-whatsapp:hover {
+  background-color: #1ebe5b;
+  transform: translateY(-3px);
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 1200px) {
+  .grid-pinterest {
+    column-count: 3;
+  }
+}
+@media (max-width: 992px) {
+  .seccion-galeria {
+    padding: 70px 30px;
+  }
+  .grid-pinterest {
+    column-count: 2;
+  }
+}
+@media (max-width: 576px) {
+  .hero-galeria .titulo {
+    font-size: 40px;
+  }
+  .grid-pinterest {
+    column-count: 1;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
