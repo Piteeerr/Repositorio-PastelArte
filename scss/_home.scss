@@ -131,89 +131,57 @@
   }
 }
 
-/* -------------------- CONTACTO -------------------- */
-.contacto {
+/* -------------------- DESTACADOS (CARRUSEL) -------------------- */
+.destacados {
   width: 100%;
   padding: 90px 20px;
+  background-color: $color-fondo;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 
   .subtitulo {
     font-size: 45px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 35px;
+    color: $color-texto;
   }
 
-  .texto {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: $color-texto-suave;
-  }
+  #carouselExample {
+    width: 100%;
+    max-width: 950px;
 
-  form {
-    max-width: 750px;
-    margin: 0 auto;
-
-    background-color: $color-blanco;
-    padding: 50px;
-    border-radius: $radius-mediano;
+    border-radius: $radius-grande;
+    overflow: hidden;
     box-shadow: $sombra-suave;
+  }
 
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  .carousel-item img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
 
-    .campo {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-
-      label {
-        font-size: 15px;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: #333;
-      }
-
-      input,
-      textarea {
-        padding: 14px;
-        border-radius: $radius-chico;
-        border: 1px solid #ddd;
-
-        font-size: 16px;
-        font-family: $font-principal;
-
-        &:focus {
-          outline: none;
-          border: 1px solid $color-principal;
-          box-shadow: 0px 0px 8px rgba(232, 108, 139, 0.3);
-        }
-      }
-
-      textarea {
-        resize: none;
-        height: 140px;
-      }
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .destacados {
+    .subtitulo {
+      font-size: 34px;
     }
 
-    button {
-      padding: 15px;
-      border: none;
-      border-radius: 14px;
+    .carousel-item img {
+      height: 280px;
+    }
+  }
+}
 
-      background-color: $color-principal;
-      color: white;
-
-      font-size: 18px;
-      font-weight: 600;
-
-      cursor: pointer;
-      transition: 0.3s;
-
-      &:hover {
-        background-color: $color-principal-hover;
-      }
+@media (max-width: 576px) {
+  .destacados {
+    .carousel-item img {
+      height: 220px;
     }
   }
 }
