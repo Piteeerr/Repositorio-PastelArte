@@ -453,127 +453,282 @@
 /* -------------------- DESTACADOS (CARRUSEL) -------------------- */
 .destacados {
   width: 100%;
-  padding: 90px 20px;
-  background-color: $color-fondo;
+  padding: 100px 20px;
+
+  // Fondo con gradiente que contrasta con las secciones blancas/crema
+  background: linear-gradient(
+    to bottom,
+    $color-blanco 0%,
+    #fce8ef 40%,
+    #fce8ef 60%,
+    $color-blanco 100%
+  );
 
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 
+  // Etiqueta pequeña arriba del título
+  &::before {
+    content: "Lo mejor de PastelArte";
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: $color-principal;
+    margin-bottom: 14px;
+  }
+
   .subtitulo {
-    font-size: 45px;
+    font-family: $font-titulos;
+    font-size: 46px;
     font-weight: 700;
-    margin-bottom: 35px;
+    letter-spacing: -0.5px;
+    margin-bottom: 50px;
     color: $color-texto;
   }
 
   #carouselExample {
     width: 100%;
-    max-width: 950px;
+    max-width: 880px;
 
     border-radius: $radius-grande;
     overflow: hidden;
-    box-shadow: $sombra-suave;
+    box-shadow: $sombra-fuerte;
   }
 
   .carousel-item img {
     width: 100%;
+    height: 520px;
     object-fit: cover;
     display: block;
   }
+
+  // Flechas del carrusel customizadas
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    box-shadow: $sombra-suave;
+    transition: 0.3s ease;
+
+    // Reposicionamos para que queden afuera de la imagen
+    &:hover {
+      background-color: $color-principal;
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  .carousel-control-prev {
+    left: -64px;
+  }
+
+  .carousel-control-next {
+    right: -64px;
+  }
+
+  // Iconos de flechas en color oscuro por defecto
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: brightness(0);
+    width: 18px;
+    height: 18px;
+    transition: 0.3s ease;
+  }
+
+  // Indicadores (puntitos) estilizados
+  .carousel-indicators {
+    bottom: -36px;
+
+    [data-bs-target] {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $color-principal;
+      opacity: 0.3;
+      border: none;
+      transition: 0.3s ease;
+    }
+
+    .active {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+  }
 }
 
-/* RESPONSIVE */
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 1100px) {
+  .destacados {
+    // En pantallas medianas las flechas vuelven adentro
+    .carousel-control-prev {
+      left: 12px;
+    }
+
+    .carousel-control-next {
+      right: 12px;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .destacados {
+    padding: 80px 20px;
+
     .subtitulo {
       font-size: 34px;
+      margin-bottom: 36px;
     }
 
     .carousel-item img {
-      height: 280px;
+      height: 320px;
     }
   }
 }
 
 @media (max-width: 576px) {
   .destacados {
+    .subtitulo {
+      font-size: 28px;
+    }
+
     .carousel-item img {
-      height: 220px;
+      height: 240px;
     }
   }
 }
 
 /* -------------------- INSTAGRAM -------------------- */
-/* -------------------- INSTAGRAM -------------------- */
 .instagram {
   width: 100%;
-  padding: 90px 80px;
+  padding: 100px 80px;
   text-align: center;
-
   background-color: $color-blanco;
 
+  // Etiqueta superior consistente con las demás secciones
+  &::before {
+    content: "Seguinos";
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: $color-principal;
+    margin-bottom: 14px;
+  }
+
   .subtitulo {
-    font-size: 42px;
-    font-weight: 800;
+    font-family: $font-titulos;
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
     margin-bottom: 10px;
     color: $color-texto;
   }
 
   .texto-ig {
-    font-size: 20px;
-    font-weight: 600;
-    color: $color-principal;
-    margin-bottom: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $color-texto-suave;
+    margin-bottom: 55px;
+    letter-spacing: 0.5px;
+
+    // Arroba con color principal
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background-image: url("../img/logo-ig.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-right: 7px;
+      opacity: 0.7;
+    }
   }
 
   .grid-instagram {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    gap: 14px;
 
-    max-width: 1000px;
-    margin: 0 auto 50px;
+    max-width: 960px;
+    margin: 0 auto 55px;
 
     img {
       width: 100%;
-      height: 260px;
+      aspect-ratio: 1 / 1; // Cuadradas como Instagram
       object-fit: cover;
 
       border-radius: $radius-mediano;
       box-shadow: $sombra-suave;
 
-      transition: 0.3s;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
 
       &:hover {
         transform: scale(1.04);
+        box-shadow: $sombra-fuerte;
       }
     }
+
   }
 
   .btn-instagram {
-    display: inline-block;
-    padding: 14px 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 15px 36px;
     border-radius: 35px;
 
     background-color: $color-principal;
     color: white;
 
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
     text-decoration: none;
 
-    transition: 0.3s;
+    border: 2px solid $color-principal;
+    transition: 0.3s ease;
+
+    // Ícono de Instagram antes del texto
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background-image: url("../img/logo-ig.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      filter: brightness(0) invert(1);
+    }
 
     &:hover {
-      background-color: $color-principal-hover;
-      transform: translateY(-5px);
+      background-color: transparent;
+      color: $color-principal;
+      transform: translateY(-3px);
+
+      &::before {
+        filter: none;
+      }
     }
   }
 }
 
-/* RESPONSIVE */
+/* -------------------- RESPONSIVE -------------------- */
 @media (max-width: 992px) {
   .instagram {
     padding: 80px 30px;
@@ -581,8 +736,15 @@
     .grid-instagram {
       grid-template-columns: repeat(2, 1fr);
 
+      // En tablet la primera imagen vuelve a ser normal
+      img:first-child {
+        grid-row: span 1;
+        aspect-ratio: 1 / 1;
+        height: auto;
+      }
+
       img {
-        height: 240px;
+        height: auto;
       }
     }
   }
@@ -597,11 +759,13 @@
     }
 
     .grid-instagram {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
+    }
 
-      img {
-        height: 220px;
-      }
+    .btn-instagram {
+      font-size: 14px;
+      padding: 13px 28px;
     }
   }
 }

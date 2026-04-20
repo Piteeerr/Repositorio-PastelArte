@@ -3,46 +3,75 @@
 /* -------------------- HERO GALERIA -------------------- */
 .hero-galeria {
   width: 100%;
-  padding: 120px 20px 70px;
+  padding: 130px 20px 80px;
   text-align: center;
 
-  background: linear-gradient(to bottom, #fff, $color-fondo);
+  background: linear-gradient(
+    to bottom,
+    #fce8ef 0%,
+    $color-fondo-calido 60%,
+    $color-blanco 100%
+  );
+
+  // Etiqueta superior
+  &::before {
+    content: "Nuestros trabajos";
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: $color-principal;
+    margin-bottom: 14px;
+  }
 
   .titulo {
-    font-size: 60px;
-    font-weight: 800;
-    margin-bottom: 10px;
+    font-family: $font-titulos;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+    color: $color-texto;
   }
 
   .texto {
     font-size: 18px;
     color: $color-texto-suave;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
   }
 }
 
 /* -------------------- NAV GALERIA -------------------- */
 .nav-galeria {
   width: 100%;
-  padding: 20px 20px 60px;
+  padding: 30px 20px 60px;
 
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 14px;
 
   .btn-galeria {
-    padding: 12px 28px;
+    padding: 12px 32px;
     border-radius: 30px;
 
-    background-color: $color-principal;
-    color: white;
+    background-color: transparent;
+    color: $color-principal;
 
+    border: 2px solid $color-principal;
     font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     text-decoration: none;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 
-    &:hover {
-      background-color: $color-principal-hover;
+    &:hover,
+    &.active {
+      background-color: $color-principal;
+      color: white;
       transform: translateY(-2px);
     }
   }
@@ -51,50 +80,111 @@
 /* -------------------- SECCIONES -------------------- */
 .seccion-galeria {
   width: 100%;
-  padding: 80px 80px;
+  padding: 60px 80px 90px;
   text-align: center;
 
+  // Secciones alternadas para separar visualmente
+  &:nth-child(even) {
+    background-color: $color-fondo-calido;
+  }
+
+  &:nth-child(odd) {
+    background-color: $color-blanco;
+  }
+
+  // Etiqueta arriba del título
+  &::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: $color-principal;
+    margin: 0 auto 20px;
+    opacity: 0.6;
+  }
+
   .subtitulo {
-    font-size: 45px;
-    font-weight: 800;
+    font-family: $font-titulos;
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
     margin-bottom: 10px;
+    color: $color-texto;
   }
 
   .subtexto {
-    font-size: 18px;
+    font-size: 17px;
     color: $color-texto-suave;
-    margin-bottom: 50px;
+    margin-bottom: 55px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
   }
 }
 
 /* -------------------- GRID PINTEREST -------------------- */
 .grid-pinterest {
   column-count: 4;
-  column-gap: 18px;
+  column-gap: 16px;
 
   img {
     width: 100%;
     border-radius: $radius-mediano;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     display: block;
 
     box-shadow: $sombra-suave;
-    transition: 0.3s;
+
+    // Efecto hover con overlay rosado
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
 
     &:hover {
       transform: scale(1.03);
+      box-shadow: $sombra-fuerte;
+      filter: brightness(0.92) saturate(1.1);
     }
+  }
+}
+
+/* -------------------- BOTON CTA FINAL -------------------- */
+// Botón de contacto al final de cada sección de galería
+.seccion-galeria .btn-encargo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+
+  padding: 16px 38px;
+  border-radius: 35px;
+
+  background-color: $color-principal;
+  color: white;
+
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+
+  border: 2px solid $color-principal;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: transparent;
+    color: $color-principal;
+    transform: translateY(-3px);
   }
 }
 
 /* -------------------- BOTON WHATSAPP -------------------- */
 .btn-whatsapp {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 28px;
+  right: 28px;
 
-  width: 65px;
-  height: 65px;
+  width: 62px;
+  height: 62px;
 
   background-color: #25d366;
   border-radius: 50%;
@@ -103,20 +193,20 @@
   justify-content: center;
   align-items: center;
 
-  box-shadow: $sombra-suave;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
   z-index: 999;
-
-  transition: 0.3s;
+  transition: 0.3s ease;
 
   img {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
   }
 
   &:hover {
-    transform: scale(1.08);
+    transform: scale(1.1);
     background-color: #1ebe5b;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
   }
 }
 
@@ -129,7 +219,7 @@
 
 @media (max-width: 992px) {
   .seccion-galeria {
-    padding: 70px 30px;
+    padding: 60px 30px 80px;
   }
 
   .grid-pinterest {
@@ -137,14 +227,38 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero-galeria {
+    padding: 100px 20px 60px;
+
+    .titulo {
+      font-size: 44px;
+    }
+  }
+
+  .seccion-galeria {
+    .subtitulo {
+      font-size: 34px;
+    }
+  }
+}
+
 @media (max-width: 576px) {
   .hero-galeria {
     .titulo {
-      font-size: 40px;
+      font-size: 36px;
+    }
+
+    .texto {
+      font-size: 16px;
     }
   }
 
   .grid-pinterest {
     column-count: 1;
+  }
+
+  .nav-galeria {
+    padding: 20px 20px 40px;
   }
 }
