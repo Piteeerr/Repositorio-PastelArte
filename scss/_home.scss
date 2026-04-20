@@ -9,8 +9,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  background-attachment: scroll; /* default para mobile */
+  background-attachment: scroll;
 
   display: flex;
   flex-direction: column;
@@ -27,7 +26,11 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(180, 60, 90, 0.45) 100%
+    );
   }
 
   .titulo,
@@ -39,95 +42,154 @@
   }
 
   .titulo {
-    font-size: 80px;
+    font-family: $font-titulos;
+    font-size: 90px;
     font-weight: 800;
-    margin-bottom: 10px;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 16px;
+
+    // Sombra de texto para legibilidad
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   }
 
   .subtitulo {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 300;
-    margin-bottom: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.92;
+
+    // El segundo subtitulo (h3) más pequeño y separado
+    & + .subtitulo {
+      font-size: 16px;
+      letter-spacing: 2px;
+      opacity: 0.75;
+      margin-bottom: 0;
+    }
   }
 
   .btn-hero {
-    margin-top: 25px;
-    padding: 14px 32px;
+    margin-top: 40px;
+    padding: 16px 40px;
     border-radius: 35px;
 
     background-color: $color-principal;
     color: white;
 
-    font-size: 17px;
-    font-weight: 700;
-
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     text-decoration: none;
-    transition: 0.3s;
+
+    border: 2px solid transparent;
+    transition: 0.3s ease;
 
     &:hover {
-      background-color: $color-principal-hover;
+      background-color: transparent;
+      border-color: white;
+      color: white;
       transform: translateY(-3px);
     }
   }
 }
 
-/* Parallax SOLO en escritorio */
 @media (min-width: 768px) {
   .presentacion {
     background-attachment: fixed;
   }
 }
 
+@media (max-width: 576px) {
+  .presentacion {
+    .titulo {
+      font-size: 52px;
+      letter-spacing: -1px;
+    }
+
+    .subtitulo {
+      font-size: 14px;
+      letter-spacing: 2px;
+
+      & + .subtitulo {
+        font-size: 13px;
+      }
+    }
+
+    .btn-hero {
+      padding: 14px 30px;
+      font-size: 13px;
+    }
+  }
+}
+
 /* -------------------- CATEGORIAS -------------------- */
 .categorias {
   width: 100%;
-  padding: 80px 80px;
+  padding: 100px 80px;
 
   display: flex;
   justify-content: center;
   gap: 40px;
+
+  // Separador superior suave
+  background: linear-gradient(to bottom, #fdf6f0, $color-blanco);
 }
 
 .categoria-card {
-  width: 330px;
-  height: 420px;
+  width: 340px;
+  height: 440px;
 
-  border-radius: 25px;
+  border-radius: $radius-grande;
   overflow: hidden;
 
   position: relative;
   text-decoration: none;
 
   box-shadow: $sombra-suave;
-  transition: 0.3s;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-    transition: 0.4s;
+    transition: transform 0.6s ease;
   }
 
   .overlay {
     position: absolute;
     inset: 0;
 
-    background-color: rgba(0, 0, 0, 0.25);
+    // Gradiente desde abajo — más elegante que el negro plano
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.15) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end; // Contenido pegado abajo
     align-items: center;
 
+    padding-bottom: 40px;
     text-align: center;
-    transition: 0.3s;
+    transition: background 0.4s ease;
 
     h3 {
-      font-size: 48px;
+      font-family: $font-titulos;
+      font-size: 44px;
       font-weight: 700;
       color: white;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+
+      // Sube suavemente al hacer hover
+      transform: translateY(8px);
+      transition: transform 0.4s ease;
     }
 
     .btn-card {
@@ -137,34 +199,51 @@
       border: 2px solid white;
       color: white;
 
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
 
-      transition: 0.3s;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease, color 0.3s ease;
     }
   }
 
   &:hover {
     transform: translateY(-8px);
+    box-shadow: $sombra-fuerte;
 
     img {
-      transform: scale(1.08);
+      transform: scale(1.06);
     }
 
     .overlay {
-      background-color: rgba(0, 0, 0, 0.4);
-    }
+      background: linear-gradient(
+        to top,
+        rgba(180, 60, 90, 0.75) 0%,
+        rgba(0, 0, 0, 0.15) 55%,
+        rgba(0, 0, 0, 0) 100%
+      );
 
-    .btn-card {
-      background-color: white;
-      color: black;
+      h3 {
+        transform: translateY(0);
+      }
+
+      .btn-card {
+        opacity: 1;
+        transform: translateY(0);
+
+        &:hover {
+          background-color: white;
+          color: $color-principal;
+        }
+      }
     }
   }
 }
 
-/* RESPONSIVE */
+/* -------------------- RESPONSIVE -------------------- */
 @media (max-width: 992px) {
   .categorias {
     flex-direction: column;
@@ -174,16 +253,21 @@
 
   .categoria-card {
     width: 90%;
-    max-width: 400px;
+    max-width: 420px;
   }
 }
 
 @media (max-width: 576px) {
+  .categorias {
+    padding: 60px 20px;
+  }
+
   .categoria-card {
-    height: 340px;
+    height: 360px;
 
     .overlay h3 {
-      font-size: 38px;
+      font-family: $font-titulos;
+      font-size: 36px;
     }
   }
 }
@@ -191,60 +275,178 @@
 /* -------------------- PERSONALIZADAS -------------------- */
 .personalizadas {
   width: 100%;
-  padding: 100px 80px;
+  padding: 120px 80px;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 80px;
 
   align-items: center;
+  background-color: $color-fondo-calido;
+
+  .info-perso {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  // Etiqueta pequeña arriba del título
+  .info-perso::before {
+    content: "Diseños a medida";
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: $color-principal;
+    margin-bottom: 16px;
+  }
 
   h2 {
-    font-size: 42px;
+    font-family: $font-titulos;
+    font-size: 46px;
     font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
     margin-bottom: 20px;
+    color: $color-texto;
   }
 
   .texto {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 30px;
     color: $color-texto-suave;
   }
 
   .lista {
-    margin-bottom: 30px;
-    padding-left: 20px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
 
     li {
-      font-size: 17px;
-      margin-bottom: 12px;
-      color: #444;
+      font-size: 16px;
+      color: $color-texto-suave;
+      margin-bottom: 14px;
+      padding-left: 28px;
+      position: relative;
+
+      // Bullet personalizado con el color principal
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $color-principal;
+        opacity: 0.8;
+      }
     }
   }
 
   .btn-personalizado {
     display: inline-block;
-    padding: 14px 28px;
-    border-radius: 30px;
+    padding: 16px 36px;
+    border-radius: 35px;
 
     background-color: $color-principal;
     color: white;
     font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
 
-    transition: 0.3s;
+    border: 2px solid $color-principal;
+    transition: 0.3s ease;
 
     &:hover {
-      background-color: $color-principal-hover;
+      background-color: transparent;
+      color: $color-principal;
       transform: translateY(-2px);
     }
   }
 
+  // Contenedor de imagen
+  .img-perso-container {
+    position: relative;
+
+    
+    &::before {
+      content: "";
+      position: absolute;
+      width: 88%;
+      height: 88%;
+      border-radius: $radius-grande;
+      background-color: $color-principal;
+      opacity: 0.12;
+      top: 24px;
+      left: 24px;
+      z-index: 0;
+    }
+  }
+
   .img-perso {
+    position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 520px;
     border-radius: $radius-grande;
     box-shadow: $sombra-fuerte;
+    display: block;
+  }
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 992px) {
+  .personalizadas {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 80px 40px;
+    text-align: center;
+
+    .info-perso {
+      align-items: center;
+    }
+
+    .info-perso::before {
+      text-align: center;
+    }
+
+    .lista {
+      text-align: left;
+      display: inline-block;
+    }
+
+    .img-perso-container {
+      display: flex;
+      justify-content: center;
+
+      &::before {
+        left: 50%;
+        transform: translateX(-50%) translateX(24px);
+      }
+    }
+
+    .img-perso {
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .personalizadas {
+    padding: 70px 20px;
+
+    h2 {
+      font-size: 34px;
+    }
+
+    .img-perso-container::before {
+      display: none; // El decorativo queda raro en mobile muy chico
+    }
   }
 }
 
