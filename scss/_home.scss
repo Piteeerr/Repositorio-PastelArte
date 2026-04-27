@@ -506,38 +506,6 @@
     display: block;
   }
 
-  // Flechas del carrusel customizadas
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 48px;
-    height: 48px;
-    background-color: white;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 1;
-    box-shadow: $sombra-suave;
-    transition: 0.3s ease;
-
-    // Reposicionamos para que queden afuera de la imagen
-    &:hover {
-      background-color: $color-principal;
-
-      .carousel-control-prev-icon,
-      .carousel-control-next-icon {
-        filter: brightness(0) invert(1);
-      }
-    }
-  }
-
-  .carousel-control-prev {
-    left: -64px;
-  }
-
-  .carousel-control-next {
-    right: -64px;
-  }
-
   // Iconos de flechas en color oscuro por defecto
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
